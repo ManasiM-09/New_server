@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hilltop Cafe - Where Mountains Meet Mornings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(180deg, 
+                #ff6b35 0%, 
+                #ff8c42 20%, 
+                #ffa45c 40%, 
+                #ffb86f 60%, 
+                #87ceeb 80%, 
+                #4a90e2 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .mountains {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+        }
+
+        .mountain-back {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 40vw solid transparent;
+            border-right: 40vw solid transparent;
+            border-bottom: 35vh solid #5a4a42;
+            left: 10%;
+            opacity: 0.7;
+        }
+
+        .mountain-front {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 50vw solid transparent;
+            border-right: 50vw solid transparent;
+            border-bottom: 45vh solid #3d2f2a;
+            left: -10%;
+        }
+
+        .mountain-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 35vw solid transparent;
+            border-right: 35vw solid transparent;
+            border-bottom: 38vh solid #4a3830;
+            right: -5%;
+        }
+
+        .sun {
+            position: absolute;
+            top: 15%;
+            right: 20%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #fff9e6 0%, #ffeb99 50%, #ff6b35 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px #ff8c42, 0 0 100px #ff6b35;
+            animation: sunrise 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes sunrise {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #3d2f2a;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background: white;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #3d2f2a;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .menu-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #3d2f2a;
+        }
+
+        .menu-item p {
+            font-size: 1.1rem;
+            color: #5a4a42;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #3d2f2a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .sun {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="sun"></div>
+        <div class="mountains">
+            <div class="mountain-back"></div>
+            <div class="mountain-right"></div>
+            <div class="mountain-front"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Hilltop Cafe</h1>
+            <p>Where Mountains Meet Mornings</p>
+            <button class="cta-button" onclick="document.querySelector('.section').scrollIntoView({behavior: 'smooth'})">Explore Our Menu</button>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Our Special Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>☕ Mountain Brew</h3>
+                <p>Freshly roasted coffee beans from high-altitude farms, served with a view that takes your breath away.</p>
+            </div>
+            <div class="menu-item">
+                <h3>🥐 Sunrise Croissant</h3>
+                <p>Buttery, flaky croissants baked fresh every morning as the sun rises over the peaks.</p>
+            </div>
+            <div class="menu-item">
+                <h3>🍳 Peak Breakfast</h3>
+                <p>Hearty breakfast platter with farm-fresh eggs, artisan bread, and local honey.</p>
+            </div>
+            <div class="menu-item">
+                <h3>🥗 Alpine Salad</h3>
+                <p>Fresh greens with seasonal vegetables, nuts, and our signature mountain herb dressing.</p>
+            </div>
+            <div class="menu-item">
+                <h3>🍰 Cloud Cake</h3>
+                <p>Light, fluffy sponge cake layered with cream, as soft as the clouds above our cafe.</p>
+            </div>
+            <div class="menu-item">
+                <h3>🍵 Herbal Infusions</h3>
+                <p>A selection of mountain herbs and teas, perfect for relaxation and reflection.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); max-width: 100%; padding: 60px 20px;">
+        <h2>Visit Us</h2>
+        <p style="text-align: center; font-size: 1.3rem; line-height: 1.8; color: #3d2f2a; max-width: 800px; margin: 0 auto;">
+            Open daily from sunrise to sunset.<br>
+            Experience the magic of mountain mornings and breathtaking sunsets.<br>
+            <strong>Location:</strong> Summit Ridge, Mountain Peak Road<br>
+            <strong>Contact:</strong> +1 (555) HILLTOP
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Hilltop Cafe. Where every cup comes with a view.</p>
+    </footer>
+</body>
+</html>
